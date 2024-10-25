@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">FirstAppHSE</string>
-    <string name="greeting_text">Insert greeting</string>
+    <string name="greeting_text">Insert greeting (\"Hello\" if empty)</string>
     <string name="next_button">Next</string>
     <string name="go_button">Go</string>
     <string name="name_text">Insert name</string>
+    <string name="default_greeting">Greeting: Hello</string>
 </resources>

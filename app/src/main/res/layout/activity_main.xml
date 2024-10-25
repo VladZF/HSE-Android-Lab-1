@@ -8,28 +8,43 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/buttonNext"
+        android:layout_width="198dp"
+        android:layout_height="60dp"
+        android:onClick="goToNameActivity"
         android:text="@string/next_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.729" />
 
     <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="250dp"
-        android:layout_height="66dp"
+        android:id="@+id/greetingBox"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
         android:ems="10"
+        android:hint="@string/greeting_text"
         android:inputType="text"
-        android:text="@string/greeting_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.177" />
+
+    <TextView
+        android:id="@+id/greetingNameText"
+        android:layout_width="334dp"
+        android:layout_height="113dp"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.343" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class NameActivity extends AppCompatActivity {
 
     private TextView nameBox;
+    private TextView dangerIfSizeOverflow;
     private String greetingString;
+    private final int maxNameSize = 80;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -24,14 +26,20 @@ public class NameActivity extends AppCompatActivity {
         nameBox = findViewById(R.id.nameBox);
         TextView greeting = findViewById(R.id.savedGreetingText);
         greetingString = intent.getStringExtra("greeting");
+        dangerIfSizeOverflow = findViewById(R.id.DangerIfSizeOverflowText);
         greetingString = greetingString.isEmpty() ? "Hello" : greetingString;
         greeting.setText("Greeting: " + greetingString);
     }
 
+    @SuppressLint("SetTextI18n")
     public void GetBackToMainActivity(View view) {
         Intent intent = new Intent();
         String name = nameBox.getText().toString();
-        intent.putExtra("full_greeting", greetingString + " " + name);
+        if (name.length() > maxNameSize) {
+            dangerIfSizeOverflow.setText("Name length must be less than " + maxNameSize + " symbols");
+            return;
+        }
+        intent.putExtra("full_greeting", greetingString + ", " + name);
         setResult(1, intent);
         finish();
     }

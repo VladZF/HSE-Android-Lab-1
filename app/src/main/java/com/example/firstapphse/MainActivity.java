@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView greetingBox;
     private TextView greetingNameText;
+    private final int maxGreetingSize = 80;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,15 @@ public class MainActivity extends AppCompatActivity {
         greetingNameText = findViewById(R.id.greetingNameText);
     }
 
+    @SuppressLint("SetTextI18n")
     public void goToNameActivity(View view) {
         Intent intent = new Intent(this, NameActivity.class);
-        intent.putExtra("greeting", greetingBox.getText().toString());
+        String greeting = greetingBox.getText().toString();
+        if (greeting.length() > maxGreetingSize) {
+            greetingNameText.setText("Greeting length must be less than " + maxGreetingSize + " symbols");
+            return;
+        }
+        intent.putExtra("greeting", greeting);
         startActivityForResult(intent, 1);
     }
 
